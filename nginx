@@ -1,0 +1,15 @@
+#/etc/monit.d/nginx
+
+check process nginx with pidfile /var/run/nginx.pid
+start program = "/etc/init.d/nginx start"
+stop program = "/etc/init.d/nginx stop"
+group nginx
+alert contato@ricardomartins.com.br
+mail-format {
+from: nginx@ricardomartins.com.br
+subject: nginx $ACTION on $HOST at $DATE
+message: This event occurred on $HOST at $DATE.
+Event: $EVENT
+Description: $DESCRIPTION
+Action: $ACTION
+}

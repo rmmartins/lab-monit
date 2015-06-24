@@ -1,0 +1,8 @@
+yum remove postfix
+yum install php-fpm nginx vim exim wget
+wget http://pkgs.repoforge.org/monit/monit-5.5-1.el6.rf.x86_64.rpm
+yum install monit-5.5-1.el6.rf.x86_64.rpm
+chkconfig nginx on
+chkconfig php-fpm on
+chkconfig monit on
+chkconfig exim on
