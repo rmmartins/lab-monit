@@ -1,8 +1,25 @@
+- Remove Postfix
 yum remove postfix
+
+- Install PHP, NGINX and Utilities
 yum install php-fpm nginx vim exim wget
+
+- Download and install monit
 wget http://pkgs.repoforge.org/monit/monit-5.5-1.el6.rf.x86_64.rpm
 yum install monit-5.5-1.el6.rf.x86_64.rpm
+
+- Setting timezone and sync of date/time
+ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+echo -e "ZONE="America/Sao_Paulo"\nUTC=false" > /etc/sysconfig/clock
+touch /etc/cron.daily/ntpdate
+echo "/usr/sbin/ntpdate -u pool.ntp.br" > /etc/cron.daily/ntpdate
+chmod 755 /etc/cron.daily/ntpdate
+
+- Enable services at boot
 chkconfig nginx on
 chkconfig php-fpm on
 chkconfig monit on
 chkconfig exim on
+
+- Start services
+...
