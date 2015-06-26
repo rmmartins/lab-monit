@@ -1,4 +1,4 @@
-#/etc/monit.d/php_fpm
+#/etc/monit.d/php-fpm
 check program script with path "/tmp/http_check.sh"
 	if status == 1 then exec "/etc/init.d/php-fpm restart"
 
