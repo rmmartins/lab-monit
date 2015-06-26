@@ -9,5 +9,4 @@ subject: php-fpm $ACTION on $HOST at $DATE
 message: This event occurred on $HOST at $DATE
 Event: $EVENT
 Description: $DESCRIPTION
-Action: $ACTION /etc/init.d/php-fpm restart
 }
